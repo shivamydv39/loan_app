@@ -1,0 +1,73 @@
+# ======================
+# Node.js / Express
+# ======================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output/
+
+# ======================
+# Flutter / Dart
+# ======================
+# Flutter build outputs
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+
+# Android
+android/.gradle/
+android/local.properties
+android/.idea/
+android/app/google-services.json
+android/key.properties
+
+# macOS
+macos/Flutter/ephemeral/
+macos/Pods/
+
+# Web
+lib/generated_plugin_registrant.dart
+
+# IDE / System files
+.vscode/
+.idea/
+*.iml
+.DS_Store
+
+# ======================
+# Optional
+# ======================
+# Remove lock files if you don’t want them versioned
+# pubspec.lock
+# package-lock.json
+
