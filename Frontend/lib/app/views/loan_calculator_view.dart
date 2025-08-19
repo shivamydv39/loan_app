@@ -15,14 +15,14 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
   int tenure = 40;
 
   double calculateEMI(double principal, double rate, int days) {
-    double dailyRate = rate / 100; // 1% per day
+    double dailyRate = rate / 100;
     double interest = (principal * dailyRate * days);
     return interest;
   }
 
   @override
   Widget build(BuildContext context) {
-    double interest = calculateEMI(amount, 1, tenure); // Example: 1% daily
+    double interest = calculateEMI(amount, 1, tenure);
     double totalPayable = amount + interest;
 
     return Scaffold(
@@ -64,16 +64,14 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
               ),
             ],
           ),
-
           const SizedBox(height: 16),
-
-          /// 🔹 Custom BottomSheet UI
           Expanded(
             child: Container(
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(20)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black26,
@@ -92,7 +90,8 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                       const SizedBox(width: 8),
                       Text(
                         "Apply for loan",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -104,8 +103,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   ),
 
                   const SizedBox(height: 20),
-
-                  /// Interest + Processing Fee
                   Row(
                     children: [
                       Expanded(
@@ -137,13 +134,13 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   ),
 
                   const SizedBox(height: 20),
-
-                  /// Purpose Dropdown
-                  Text("Purpose of Loan*", style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Purpose of Loan*",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   DropdownButtonFormField<String>(
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12)),
                     ),
                     items: ["Education", "Business", "Medical"].map((e) {
                       return DropdownMenuItem(value: e, child: Text(e));
@@ -152,8 +149,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   ),
 
                   const SizedBox(height: 20),
-
-                  /// Amount Slider
                   Text("Principal Amount"),
                   Slider(
                     value: amount,
@@ -165,8 +160,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   Text("₹ ${amount.toInt()}"),
 
                   const SizedBox(height: 20),
-
-                  /// Tenure Slider
                   Text("Tenure"),
                   Slider(
                     value: tenure.toDouble(),
@@ -178,8 +171,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   Text("$tenure Days"),
 
                   const SizedBox(height: 20),
-
-                  /// Calculation Box
                   Container(
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
@@ -191,7 +182,8 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                       children: [
                         _rowText("Principal Amount", "₹${amount.toInt()}"),
                         _rowText("Interest", "1%"),
-                        _rowText("Total Payable", "₹${totalPayable.toStringAsFixed(0)}"),
+                        _rowText("Total Payable",
+                            "₹${totalPayable.toStringAsFixed(0)}"),
                       ],
                     ),
                   ),
@@ -204,8 +196,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                   ),
 
                   Spacer(),
-
-                  /// Bottom Buttons
                   Row(
                     children: [
                       Expanded(
@@ -226,7 +216,8 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                       const SizedBox(width: 12),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () => Get.off(() => OfferView()),// 👈 OfferScreen pe jaayega
+                          onPressed: () => Get.off(() => OfferView()),
+                          // 👈 OfferScreen pe jaayega
                           style: OutlinedButton.styleFrom(
                             padding: EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(
@@ -235,7 +226,6 @@ class _LoanCalculatorViewState extends State<LoanCalculatorView> {
                           ),
                           child: Text("Cancel"),
                         ),
-
                       ),
                     ],
                   ),

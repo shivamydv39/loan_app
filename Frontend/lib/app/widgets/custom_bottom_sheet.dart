@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Future<T?> showCustomBottomSheet<T>({
   required BuildContext context,
   required Widget child,
-  double heightFraction = 0.93, // kitni screen cover kare bottomsheet
+  double heightFraction = 0.93,
 }) {
   return showModalBottomSheet<T>(
     context: context,

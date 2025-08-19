@@ -19,8 +19,6 @@ class _PersonalDetailsViewState extends State<PersonalDetailsView> {
             padding: const EdgeInsets.only(top: 53), // top space diya
             child: StepperHeader(currentStep: 1),
           ),
-
-          // 🔹 Neeche BottomSheet style container
           Expanded(
             child: Container(
               decoration: BoxDecoration(

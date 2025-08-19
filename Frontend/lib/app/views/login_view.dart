@@ -26,7 +26,8 @@ class _LoginViewState extends State<LoginView> {
   final TextEditingController mobileController = TextEditingController();
   final TextEditingController otpController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   final PageController _pageController = PageController();
   final RxInt currentPage = 0.obs;
@@ -110,12 +111,14 @@ class _LoginViewState extends State<LoginView> {
                         OnboardItem(
                           icon: Icons.directions_car,
                           title: "Flexible Loan Options",
-                          subtitle: "Loan types to cater to different financial needs",
+                          subtitle:
+                              "Loan types to cater to different financial needs",
                         ),
                         OnboardItem(
                           icon: Icons.verified,
                           title: "Instant Loan Approval",
-                          subtitle: "Users will receive approval within minutes",
+                          subtitle:
+                              "Users will receive approval within minutes",
                         ),
                         OnboardItem(
                           icon: Icons.support_agent,
@@ -179,13 +182,15 @@ class _LoginViewState extends State<LoginView> {
           const SizedBox(height: 24),
           const Align(
             alignment: Alignment.centerLeft,
-            child: Text("Mobile Number", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+            child: Text("Mobile Number",
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           ),
           const SizedBox(height: 8),
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade400),
                   borderRadius: BorderRadius.circular(8),
@@ -194,7 +199,9 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     Image.asset('assets/images/image 1.png', height: 20),
                     const SizedBox(width: 6),
-                    const Text("+91", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    const Text("+91",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
                   ],
                 ),
               ),
@@ -219,20 +226,28 @@ class _LoginViewState extends State<LoginView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Obx(() => Checkbox(
-                value: authController.isAgreed.value,
-                onChanged: (val) {
-                  authController.isAgreed.value = val ?? false;
-                },
-              )),
+                    value: authController.isAgreed.value,
+                    onChanged: (val) {
+                      authController.isAgreed.value = val ?? false;
+                    },
+                  )),
               Expanded(
                 child: RichText(
                   text: const TextSpan(
                     style: TextStyle(color: Colors.black, fontSize: 12),
                     children: [
                       TextSpan(text: "By continuing, you agree to our "),
-                      TextSpan(text: "privacy policies", style: TextStyle(fontWeight: FontWeight.w600, decoration: TextDecoration.underline)),
+                      TextSpan(
+                          text: "privacy policies",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline)),
                       TextSpan(text: " and "),
-                      TextSpan(text: "Terms & Conditions.", style: TextStyle(fontWeight: FontWeight.w600, decoration: TextDecoration.underline)),
+                      TextSpan(
+                          text: "Terms & Conditions.",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline)),
                     ],
                   ),
                 ),
@@ -248,7 +263,8 @@ class _LoginViewState extends State<LoginView> {
               } else if (!authController.isAgreed.value) {
                 Get.snackbar("Error", "Please accept terms & conditions");
               } else {
-                bool success = await authController.sendOtp(mobileController.text.trim());
+                bool success =
+                    await authController.sendOtp(mobileController.text.trim());
                 if (success) {
                   Get.snackbar("OTP", "OTP sent successfully");
                   stepIndex.value = 1;
@@ -272,9 +288,12 @@ class _LoginViewState extends State<LoginView> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(height: 8),
-          const Text("Enter OTP", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          const Text("Enter OTP",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
           const SizedBox(height: 8),
-          Text("Verify OTP, Sent on +91 ${mobileController.text}", style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+          Text("Verify OTP, Sent on +91 ${mobileController.text}",
+              style:
+                  const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
           const SizedBox(height: 20),
           PinCodeTextField(
             appContext: Get.context!,
@@ -305,14 +324,18 @@ class _LoginViewState extends State<LoginView> {
           const SizedBox(height: 12),
           Obx(() {
             return secondsRemaining.value > 0
-                ? Text("00:${secondsRemaining.value.toString().padLeft(2, '0')}", style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500))
+                ? Text(
+                    "00:${secondsRemaining.value.toString().padLeft(2, '0')}",
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w500))
                 : TextButton(
-              onPressed: () {
-                _startTimer();
-                Get.snackbar("OTP", "OTP resent successfully!");
-              },
-              child: const Text("Resend OTP", style: TextStyle(color: Colors.blue)),
-            );
+                    onPressed: () {
+                      _startTimer();
+                      Get.snackbar("OTP", "OTP resent successfully!");
+                    },
+                    child: const Text("Resend OTP",
+                        style: TextStyle(color: Colors.blue)),
+                  );
           }),
           const SizedBox(height: 20),
           PrimaryButton(
@@ -321,7 +344,8 @@ class _LoginViewState extends State<LoginView> {
               if (otpController.text.length != 4) {
                 Get.snackbar("Error", "Please enter valid 4-digit OTP");
               } else {
-                bool verified = await authController.verifyOtp(mobileController.text.trim(), otpController.text.trim());
+                bool verified = await authController.verifyOtp(
+                    mobileController.text.trim(), otpController.text.trim());
                 if (verified) {
                   stepIndex.value = 2;
                 } else {
@@ -373,7 +397,8 @@ class _LoginViewState extends State<LoginView> {
   }
 
   void _submitPassword() {
-    if (passwordController.text.trim().isEmpty || confirmPasswordController.text.trim().isEmpty) {
+    if (passwordController.text.trim().isEmpty ||
+        confirmPasswordController.text.trim().isEmpty) {
       Get.snackbar("Error", "Please fill both password fields");
     } else if (passwordController.text != confirmPasswordController.text) {
       Get.snackbar("Error", "Passwords do not match");
@@ -399,7 +424,8 @@ class _LoginViewState extends State<LoginView> {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade400),
                   borderRadius: BorderRadius.circular(8),
@@ -408,7 +434,9 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     Image.asset('assets/images/image 1.png', height: 20),
                     const SizedBox(width: 6),
-                    const Text("+91", style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                    const Text("+91",
+                        style: TextStyle(
+                            fontSize: 14, fontWeight: FontWeight.w500)),
                   ],
                 ),
               ),
@@ -467,7 +495,9 @@ class _LoginViewState extends State<LoginView> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          Text(title,
+              style:
+                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
           const SizedBox(height: 16),
           child,
           const SizedBox(height: 20),

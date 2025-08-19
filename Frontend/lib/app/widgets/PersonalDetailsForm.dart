@@ -18,7 +18,6 @@ class _PersonalDetailsFormState extends State<PersonalDetailsForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Back button + Title
           Row(
             children: [
               IconButton(

@@ -13,13 +13,10 @@ class LoanStatusView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          /// 🔹 Top Stepper Header
           Padding(
             padding: const EdgeInsets.only(top: 53),
-            child: StepperHeader(currentStep: 3), // ✅ Approval step active
+            child: StepperHeader(currentStep: 3),
           ),
-
-          /// 🔹 BottomSheet style container
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -40,8 +37,8 @@ class LoanStatusView extends StatelessWidget {
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       "Application Status",
-                      style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
 
@@ -50,8 +47,8 @@ class LoanStatusView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Text(
                       "Loan application no. #CS12323",
-                      style: TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.w500),
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                     ),
                   ),
 
@@ -63,8 +60,10 @@ class LoanStatusView extends StatelessWidget {
                       padding: EdgeInsets.all(16),
                       child: Column(
                         children: [
-                          _statusStep("Application Submitted", true, Colors.green),
-                          _statusStep("Application under Review", true, Colors.blue),
+                          _statusStep(
+                              "Application Submitted", true, Colors.green),
+                          _statusStep(
+                              "Application under Review", true, Colors.blue),
                           _statusStep("E-KYC", false, Colors.grey),
                           _statusStep("E-Nach", false, Colors.grey),
                           _statusStep("E-Sign", false, Colors.grey),
@@ -116,8 +115,8 @@ class LoanStatusView extends StatelessWidget {
                             // Yaha aap next screen define kar sakte ho
                             Get.snackbar("Next", "Continue pressed");
                           },
-                          child: Text("Continue",
-                              style: TextStyle(fontSize: 16)),
+                          child:
+                              Text("Continue", style: TextStyle(fontSize: 16)),
                         ),
                       ),
                     ),
@@ -144,8 +143,7 @@ class LoanStatusView extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Icon(Icons.event_note,
-              color: active ? color : Colors.grey, size: 22),
+          Icon(Icons.event_note, color: active ? color : Colors.grey, size: 22),
           SizedBox(width: 12),
           Text(
             title,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-/// Controller for Splash Screen
 class SplashController extends GetxController {
   @override
   void onInit() {
@@ -11,28 +9,26 @@ class SplashController extends GetxController {
 
   void _navigateToNext() async {
     await Future.delayed(const Duration(seconds: 2));
-    // Yaha login check kar sakte ho (isLoggedIn ? Home : Login)
-    Get.offAllNamed('/login'); // replace with your route
+    Get.offAllNamed('/login');
   }
 }
 
-/// Splash Screen UI
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SplashController()); // init controller
+    Get.put(SplashController());
 
     return Scaffold(
-      backgroundColor: const Color(0xFF004C99), // CreditSea blue
+      backgroundColor: const Color(0xFF004C99),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // App Logo
             Image.asset(
-              'assets/images/Group.png', // apna logo path
+              'assets/images/Group.png',
               width: 120,
             ),
             const SizedBox(height: 20),

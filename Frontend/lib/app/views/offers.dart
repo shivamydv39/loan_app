@@ -14,27 +14,22 @@ class OfferView extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       body: Column(
         children: [
-          /// 🔹 Stepper Top
           Padding(
             padding: const EdgeInsets.only(top: 53),
-            child: StepperHeader(currentStep: 2), // step 2: Offer
+            child: StepperHeader(currentStep: 2),
           ),
 
           const SizedBox(height: 24),
-
-          /// 🔹 Title
           Text(
             "Our Offerings",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
 
           const SizedBox(height: 16),
-
-          /// 🔹 Lottie Animation (Coin / Rupee)
           SizedBox(
             height: 160,
             child: Lottie.asset(
-              "assets/animation/Increasing Coin Animation.json", // 👈 apna animation file yaha daalna
+              "assets/animation/Increasing Coin Animation.json",
               repeat: true,
               fit: BoxFit.contain,
             ),
@@ -75,8 +70,6 @@ class OfferView extends StatelessWidget {
           ),
 
           Spacer(),
-
-          /// 🔹 Bottom Buttons
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),

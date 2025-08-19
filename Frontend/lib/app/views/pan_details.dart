@@ -17,13 +17,10 @@ class _PanDetailsState extends State<PanDetails> {
     return Scaffold(
       body: Column(
         children: [
-          // 🔹 Stepper on top
           Padding(
             padding: const EdgeInsets.only(top: 53),
             child: StepperHeader(currentStep: 1),
           ),
-
-          // 🔹 Bottom sheet style
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -63,14 +60,12 @@ class _PanDetailsState extends State<PanDetails> {
                             ],
                           ),
                           const SizedBox(height: 24),
-
-                          // Vector/Image Placeholder
                           Center(
                             child: Container(
                               height: 150,
                               width: 200,
                               child: Image.asset(
-                                "assets/images/card.png", // 👈 apna asset lagao
+                                "assets/images/card.png",
                                 fit: BoxFit.contain,
                               ),
                             ),
