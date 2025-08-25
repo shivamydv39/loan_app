@@ -93,7 +93,6 @@ class _PanDetailsState extends State<PanDetails> {
                     ),
                   ),
 
-                  // Verify button
                   SafeArea(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),

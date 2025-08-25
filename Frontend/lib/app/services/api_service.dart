@@ -30,7 +30,7 @@ class ApiService {
     if (res.statusCode == 200) {
       final data = jsonDecode(res.body);
       if (data['token'] != null) {
-        setToken(data['token']); // Save token for future requests
+        setToken(data['token']);
       }
       return data;
     }
@@ -41,16 +41,16 @@ class ApiService {
   Future<Map<String, dynamic>?> getProfile() async {
     if (_token == null) {
       print("Error: Token is null. User not authenticated.");
-      // Optionally, you could throw an exception here or navigate to login
+
       return null;
     }
-    print("Attempting to get profile with token: $_token"); // Log the token
+    print("Attempting to get profile with token: $_token");
 
     final res = await http.get(
       Uri.parse('$baseUrl/user/profile'),
       headers: {
         'Authorization': 'Bearer $_token',
-        'Content-Type': 'application/json', // Good practice to include, though not always required for GET
+        'Content-Type': 'application/json',
       },
     );
     print("getProfile => ${res.statusCode}: ${res.body}");
@@ -58,11 +58,11 @@ class ApiService {
     if (res.statusCode == 200) {
       return jsonDecode(res.body);
     } else {
-      // Log the error more clearly or handle it
+
       print("Error fetching profile: ${res.statusCode} - ${res.body}");
       // You could throw an exception here:
       // throw Exception('Failed to load profile: ${res.statusCode} ${res.body}');
-      return null; // Or return the error body if your UI can handle it
+      return null;
     }
   }
 

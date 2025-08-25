@@ -16,7 +16,7 @@ class _PersonalDetailsViewState extends State<PersonalDetailsView> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 53), // top space diya
+            padding: const EdgeInsets.only(top: 53),
             child: StepperHeader(currentStep: 1),
           ),
           Expanded(
@@ -38,12 +38,10 @@ class _PersonalDetailsViewState extends State<PersonalDetailsView> {
                     child: SingleChildScrollView(
                       padding: EdgeInsets.all(16),
                       child: PersonalDetailsForm(
-                        // 👈 agar aap form ke andar ka button hata rahe ho
                       ),
                     ),
                   ),
 
-                  // Continue button bottom pe fixed
                   SafeArea(
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),

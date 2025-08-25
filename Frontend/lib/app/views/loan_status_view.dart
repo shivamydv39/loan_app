@@ -54,7 +54,6 @@ class LoanStatusView extends StatelessWidget {
 
                   SizedBox(height: 12),
 
-                  /// 🔹 Status Steps
                   Expanded(
                     child: SingleChildScrollView(
                       padding: EdgeInsets.all(16),
@@ -71,7 +70,6 @@ class LoanStatusView extends StatelessWidget {
 
                           SizedBox(height: 20),
 
-                          /// Info text
                           Column(
                             children: [
                               Icon(Icons.account_balance_wallet_outlined,
@@ -112,7 +110,7 @@ class LoanStatusView extends StatelessWidget {
                             backgroundColor: Colors.blue,
                           ),
                           onPressed: () {
-                            // Yaha aap next screen define kar sakte ho
+
                             Get.snackbar("Next", "Continue pressed");
                           },
                           child:
